@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace KF
@@ -9,6 +8,15 @@ namespace KF
     {
         [HideInInspector] public CharacterController characterController;
         [HideInInspector] public Animator animator;
+
+        [Header("Flags")]
+        public bool isPerformingAction = false;
+        public bool isSprinting = false;
+        public bool applyRootMotion = false;
+        public bool canRotate = true;
+        public bool canMove = true;
+
+
         protected virtual void Awake()
         {
             DontDestroyOnLoad(this);

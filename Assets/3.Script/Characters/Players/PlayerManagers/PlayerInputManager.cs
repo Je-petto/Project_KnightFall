@@ -12,17 +12,20 @@ namespace KF
 
         PlayerControls playerControls;
 
+        [Header("CAMERA MOVEMENT INPUT")]
+        [SerializeField] Vector2 cameraInput;
+        public float cameraHorizontalInput;
+        public float cameraVerticalInput;
+
         [Header("PLAYER MOVEMENT INPUT")]
         [SerializeField] Vector2 movementInput;
         public float horizontalInput;
         public float verticalInput;
         public float moveAmount;
 
-        [Header("CAMERA MOVEMENT INPUT")]
-        [SerializeField] Vector2 cameraInput;
-        public float cameraHorizontalInput;
-        public float cameraVerticalInput;
-
+        [Header("PLAYER ACTION INPUT")]
+        [SerializeField] bool dodgeInput = false;
+        [SerializeField] bool sprintInput = false;
 
         private void Awake()
         {
@@ -67,6 +70,11 @@ namespace KF
 
                 playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
                 playerControls.PlayerCamera.Movement.performed += i => cameraInput = i.ReadValue<Vector2>();
+                playerControls.PlayerActions.Dodge.performed += i => dodgeInput = true;
+
+                //Holding the input, Sets the bool to true, release to false
+                playerControls.PlayerActions.Sprint.performed += i => sprintInput = true;
+                playerControls.PlayerActions.Sprint.canceled += i => sprintInput = false;
             }
 
             playerControls.Enable();
@@ -80,10 +88,18 @@ namespace KF
 
         private void Update()
         {
-            HandlePlayerMovementInput();
-            HandleCameraMovementInput();
+            HandleAllInputs();
         }
 
+        private void HandleAllInputs()
+        {
+            HandlePlayerMovementInput();
+            HandleCameraMovementInput();
+            HandleDodgeInput();
+            HandleSprinting();
+        }
+
+        //MOVEMENT
         private void HandlePlayerMovementInput()
         {
             verticalInput = movementInput.y;
@@ -105,9 +121,9 @@ namespace KF
 
             if (player == null)
                 return;
-            
+
             //If we are NOT locked on, only use the move amount
-            player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount);
+            player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount, player.isSprinting);
 
             //if we are locked on pass the horizontal movement as well
         }
@@ -119,6 +135,29 @@ namespace KF
 
         }
 
+        //ACTION
+        private void HandleDodgeInput()
+        {
+            if (dodgeInput)
+            {
+                dodgeInput = false;
+                // Return(do nothing) if Menu or UI Window is open
+
+                player.playerLocomotionManager.AttemptToPerformDodge();
+            }
+        }
+
+        private void HandleSprinting()
+        {
+            if (sprintInput)
+            {
+                player.playerLocomotionManager.HandleSprinting();
+            }
+            else
+            {
+                player.isSprinting = false;
+            }
+        }
     }
     
 }
