@@ -96,7 +96,7 @@ namespace KF
             HandlePlayerMovementInput();
             HandleCameraMovementInput();
             HandleDodgeInput();
-            HandleSprinting();
+            HandleSprintInput();
         }
 
         //MOVEMENT
@@ -147,17 +147,19 @@ namespace KF
             }
         }
 
-        private void HandleSprinting()
+        private void HandleSprintInput()
         {
             if (sprintInput)
             {
-                player.playerLocomotionManager.HandleSprinting();
+                player.playerLocomotionManager.HandleSprintInput();
             }
             else
             {
                 player.isSprinting = false;
             }
         }
+
+        
     }
     
 }

@@ -7,6 +7,7 @@ namespace KF
     public class PlayerUIManager : MonoBehaviour
     {
         public static PlayerUIManager instance;
+        [HideInInspector] public PlayerUIHudManager playerUIHudManager;
         private void Awake()
         {
             if (instance == null)
@@ -17,6 +18,8 @@ namespace KF
             {
                 Destroy(gameObject);
             }
+            
+            playerUIHudManager = GetComponentInChildren<PlayerUIHudManager>();
         }
 
         private void Start()

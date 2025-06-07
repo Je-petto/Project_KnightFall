@@ -101,7 +101,7 @@ namespace KF
             transform.rotation = targetRotation;
         }
 
-        public void HandleSprinting()
+        public void HandleSprintInput()
         {
             if (player.isPerformingAction)
             {

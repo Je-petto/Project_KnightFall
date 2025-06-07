@@ -12,6 +12,7 @@ namespace KF
         [Header("Flags")]
         public bool isPerformingAction = false;
         public bool isSprinting = false;
+        public bool isGrounded = true;
         public bool applyRootMotion = false;
         public bool canRotate = true;
         public bool canMove = true;
@@ -26,7 +27,7 @@ namespace KF
 
         protected virtual void Update()
         {
-
+            animator.SetBool("isGrounded", isGrounded);
         }
 
         protected virtual void LateUpdate()
