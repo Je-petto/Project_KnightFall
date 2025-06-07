@@ -6,14 +6,15 @@ namespace KF
 {
     public class PlayerManager : CharacterManager
     {
-        PlayerLocomotionManager playerLocomotionManager;
+        [HideInInspector] public PlayerAnimatorManager playerAnimatorManager;
+        [HideInInspector] public PlayerLocomotionManager playerLocomotionManager;
         protected override void Awake()
         {
-            PlayerLocomotionManager playerLocomotionManager;
             // Has Aspects of CharacterManager but can add more just for Player
             base.Awake();
 
             playerLocomotionManager = GetComponent<PlayerLocomotionManager>();
+            playerAnimatorManager = GetComponent<PlayerAnimatorManager>();
         }
 
         protected override void Update()
@@ -21,6 +22,12 @@ namespace KF
             base.Update();
 
             playerLocomotionManager.HandleAllMovement();
+        }
+
+        protected override void LateUpdate()
+        {
+            base.LateUpdate();
+            PlayerCamera.instance.HandleAllCameraActions();
         }
     } 
 }

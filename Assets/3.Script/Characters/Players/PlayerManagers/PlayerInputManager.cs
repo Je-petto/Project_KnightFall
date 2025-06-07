@@ -8,9 +8,21 @@ namespace KF
     public class PlayerInputManager : MonoBehaviour
     {
         public static PlayerInputManager instance;
+        public PlayerManager player;
 
         PlayerControls playerControls;
+
+        [Header("PLAYER MOVEMENT INPUT")]
         [SerializeField] Vector2 movementInput;
+        public float horizontalInput;
+        public float verticalInput;
+        public float moveAmount;
+
+        [Header("CAMERA MOVEMENT INPUT")]
+        [SerializeField] Vector2 cameraInput;
+        public float cameraHorizontalInput;
+        public float cameraVerticalInput;
+
 
         private void Awake()
         {
@@ -54,6 +66,7 @@ namespace KF
                 playerControls = new PlayerControls();
 
                 playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
+                playerControls.PlayerCamera.Movement.performed += i => cameraInput = i.ReadValue<Vector2>();
             }
 
             playerControls.Enable();
@@ -63,6 +76,47 @@ namespace KF
         {
             // if we Destroy this Obbject, unsubscribe from this event
             SceneManager.activeSceneChanged -= OnSceneChange;
+        }
+
+        private void Update()
+        {
+            HandlePlayerMovementInput();
+            HandleCameraMovementInput();
+        }
+
+        private void HandlePlayerMovementInput()
+        {
+            verticalInput = movementInput.y;
+            horizontalInput = movementInput.x;
+
+            moveAmount = Mathf.Clamp01(Mathf.Abs(verticalInput) + Mathf.Abs(horizontalInput));
+
+            if (moveAmount <= 0.5f && moveAmount > 0f)
+            {
+                moveAmount = 0.5f;
+            }
+            else if (moveAmount > 0.5f && moveAmount <= 1f)
+            {
+                moveAmount = 1f;
+            }
+
+            //Why do we pass 0 on the horizontal? because we only want Non_Strafing movement
+            // We Use the horizontal when we are strafing or locked on
+
+            if (player == null)
+                return;
+            
+            //If we are NOT locked on, only use the move amount
+            player.playerAnimatorManager.UpdateAnimatorMovementParameters(0, moveAmount);
+
+            //if we are locked on pass the horizontal movement as well
+        }
+
+        private void HandleCameraMovementInput()
+        {
+            cameraVerticalInput = cameraInput.y;
+            cameraHorizontalInput = cameraInput.x;
+
         }
 
     }
