@@ -6,8 +6,11 @@ namespace KF
 {
     public class CharacterManager : MonoBehaviour
     {
+        [Header("Status")]
+        public bool isDead = false;
         [HideInInspector] public CharacterController characterController;
         [HideInInspector] public Animator animator;
+        [HideInInspector] public CharacterEffectsManager characterEffectsManager;
 
         [Header("Flags")]
         public bool isPerformingAction = false;
@@ -24,6 +27,7 @@ namespace KF
             DontDestroyOnLoad(this);
             animator = GetComponent<Animator>();
             characterController = GetComponent<CharacterController>();
+            characterEffectsManager = GetComponent<CharacterEffectsManager>();
         }
 
         protected virtual void Update()

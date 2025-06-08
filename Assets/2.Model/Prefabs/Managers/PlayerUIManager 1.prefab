@@ -172,8 +172,8 @@ MonoBehaviour:
     m_Bottom: 25
   m_ChildAlignment: 6
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -285,7 +285,7 @@ RectTransform:
   - {fileID: 7604137649088992913}
   m_Father: {fileID: 3874970111885203042}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
@@ -335,6 +335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4375393726452751745}
+  - component: {fileID: 8614583647584310444}
   m_Layer: 0
   m_Name: HUD Manager
   m_TagString: Untagged
@@ -362,6 +363,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8614583647584310444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650265874338310572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1184f5c4aa8e38645947e294b8360594, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 513435072688748289}
 --- !u!1 &6647237717310740645
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,8 +434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -447,6 +461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3874970111885203042}
   - component: {fileID: 6655370612584843105}
+  - component: {fileID: 513435072688748289}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -518,7 +533,7 @@ MonoBehaviour:
   m_Interactable: 0
   m_TargetGraphic: {fileID: 2168423486828408801}
   m_FillRect: {fileID: 3125266537530053539}
-  m_HandleRect: {fileID: 0}
+  m_HandleRect: {fileID: 7604137649088992913}
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
@@ -527,6 +542,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &513435072688748289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821867160683736787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b84843788189d4341986e5631809e66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleBarLenghtWithStats: 1
+  widthScaleMultiplier: 1
 --- !u!1 &8913160494068936300
 GameObject:
   m_ObjectHideFlags: 0

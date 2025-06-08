@@ -23,6 +23,8 @@ namespace KF
 
         [Header("Jump")]
         [SerializeField] float jumpHeight = 2.3f;
+        [SerializeField] float jumpForwardSpeed = 5f;
+        [SerializeField] float freeFallSpeed = 2f;
         private Vector3 jumpDirection;
 
 
@@ -46,6 +48,7 @@ namespace KF
             HandleGroundMovement();
             HandleRotation();
             HandleJumpMovement();
+            HandleFreeFallMovement();
         }
 
         private void GetMovementValues()
@@ -54,6 +57,7 @@ namespace KF
             horizontalMovement = PlayerInputManager.instance.horizontalInput;
             moveAmount = PlayerInputManager.instance.moveAmount;
         }
+
         private void HandleGroundMovement()
         {
             if (!player.canMove)
@@ -88,7 +92,21 @@ namespace KF
         {
             if (player.isJumping)
             {
-                player.characterController.Move(jumpDirection * runningSpeed * Time.deltaTime);
+                player.characterController.Move(jumpDirection * jumpForwardSpeed * Time.deltaTime);
+            }
+        }
+
+        private void HandleFreeFallMovement()
+        {
+            if (!player.isGrounded)
+            {
+                Vector3 freeFallDirection;
+
+                freeFallDirection = PlayerCamera.instance.transform.forward * PlayerInputManager.instance.verticalInput;
+                freeFallDirection = freeFallDirection + PlayerCamera.instance.transform.right * PlayerInputManager.instance.horizontalInput;
+                freeFallDirection.y = 0;
+
+                player.characterController.Move(freeFallDirection * freeFallSpeed * Time.deltaTime);
             }
         }
 
