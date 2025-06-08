@@ -26,6 +26,7 @@ namespace KF
         [Header("PLAYER ACTION INPUT")]
         [SerializeField] bool dodgeInput = false;
         [SerializeField] bool sprintInput = false;
+        [SerializeField] bool jumpInput = false;
 
         private void Awake()
         {
@@ -71,6 +72,7 @@ namespace KF
                 playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
                 playerControls.PlayerCamera.Movement.performed += i => cameraInput = i.ReadValue<Vector2>();
                 playerControls.PlayerActions.Dodge.performed += i => dodgeInput = true;
+                playerControls.PlayerActions.Jump.performed += i => jumpInput = true;
 
                 //Holding the input, Sets the bool to true, release to false
                 playerControls.PlayerActions.Sprint.performed += i => sprintInput = true;
@@ -97,6 +99,7 @@ namespace KF
             HandleCameraMovementInput();
             HandleDodgeInput();
             HandleSprintInput();
+            HandleJumpInput();
         }
 
         //MOVEMENT
@@ -159,7 +162,15 @@ namespace KF
             }
         }
 
-        
+        private void HandleJumpInput()
+        {
+            if (jumpInput)
+            {
+                jumpInput = false;
+
+                player.playerLocomotionManager.AttemptToPerformJump();
+            }
+        }
     }
     
 }

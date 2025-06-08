@@ -21,6 +21,11 @@ namespace KF
         [SerializeField] float sprintingSpeed = 7.5f;
         [SerializeField] float rotationSpeed = 15f;
 
+        [Header("Jump")]
+        [SerializeField] float jumpHeight = 2.3f;
+        private Vector3 jumpDirection;
+
+
         [Header("DODGE")]
         private Vector3 rollDirection;
 
@@ -40,7 +45,7 @@ namespace KF
         {
             HandleGroundMovement();
             HandleRotation();
-            //Falling
+            HandleJumpMovement();
         }
 
         private void GetMovementValues()
@@ -56,7 +61,7 @@ namespace KF
 
             GetMovementValues();
             //Our move direction is based on out camera's facing perspective & our movement inputs
-                moveDirection = PlayerCamera.instance.transform.forward * verticalMovement;
+            moveDirection = PlayerCamera.instance.transform.forward * verticalMovement;
             moveDirection = moveDirection + PlayerCamera.instance.transform.right * horizontalMovement;
             moveDirection.Normalize();
             moveDirection.y = 0;
@@ -65,7 +70,7 @@ namespace KF
             {
                 player.characterController.Move(moveDirection * sprintingSpeed * Time.deltaTime);
             }
-            
+
             else
             {
                 if (PlayerInputManager.instance.moveAmount > 0.5f)
@@ -77,14 +82,21 @@ namespace KF
                     player.characterController.Move(moveDirection * walkingSpeed * Time.deltaTime);
                 }
             }
+        }
 
+        private void HandleJumpMovement()
+        {
+            if (player.isJumping)
+            {
+                player.characterController.Move(jumpDirection * runningSpeed * Time.deltaTime);
+            }
         }
 
         private void HandleRotation()
         {
             if (!player.canRotate)
                 return;
-            
+
             targetRotationDirection = Vector3.zero;
             targetRotationDirection = PlayerCamera.instance.cameraObject.transform.forward * verticalMovement;
             targetRotationDirection = targetRotationDirection + PlayerCamera.instance.cameraObject.transform.right * horizontalMovement;
@@ -141,6 +153,48 @@ namespace KF
             {
                 player.playerAnimatorManager.PlayTargetActionAnimation("Back_Step_01", true, true);
             }
+        }
+
+        public void AttemptToPerformJump()
+        {
+            if (player.isPerformingAction)
+                return;
+
+            if (player.isJumping)
+                return;
+
+            if (!player.isGrounded)
+                return;
+
+            player.playerAnimatorManager.PlayTargetActionAnimation("Main_Jump_01", false);
+
+            player.isJumping = true;
+
+            jumpDirection = PlayerCamera.instance.cameraObject.transform.forward * PlayerInputManager.instance.verticalInput;
+            jumpDirection += PlayerCamera.instance.cameraObject.transform.right * PlayerInputManager.instance.horizontalInput;
+
+            jumpDirection.y = 0;
+
+            if (jumpDirection != Vector3.zero)
+            {
+                if (player.isSprinting)
+                {
+                    jumpDirection *= 1;
+                }
+                else if (PlayerInputManager.instance.moveAmount > 0.5f)
+                {
+                    jumpDirection *= 0.5f;
+                }
+                else if (PlayerInputManager.instance.moveAmount <= 0.5f)
+                {
+                    jumpDirection *= 0.25f;
+                }
+            }
+        }
+
+        public void ApplyJumpingVelocity()
+        {
+            yVelocity.y = Mathf.Sqrt(jumpHeight * -2 * gravityForce);
         }
     }
     
