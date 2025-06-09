@@ -385,8 +385,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -300}
-  m_SizeDelta: {x: 1000, y: 300}
+  m_AnchoredPosition: {x: 0, y: -467}
+  m_SizeDelta: {x: 1000, y: 1185.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &435501974
 MonoBehaviour:
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 50f6e197bb1fb3b40b2a78b938424f26, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1669,7 +1669,11 @@ PrefabInstance:
       objectReference: {fileID: 448628535455801887}
     - target: {fileID: 4856758956640402452, guid: a91e347b824e5514a85e03fd61f2a238, type: 3}
       propertyPath: maxPivot
-      value: 45
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856758956640402452, guid: a91e347b824e5514a85e03fd61f2a238, type: 3}
+      propertyPath: collideWithLayers.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1846,6 +1850,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9173882125105363608, guid: 767a1e9cdd61d8744a007a70db8f100a, type: 3}
+      propertyPath: backStepSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 2647c04d028a85e46814cc473a0787ba, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

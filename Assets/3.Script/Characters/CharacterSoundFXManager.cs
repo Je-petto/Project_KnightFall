@@ -17,5 +17,10 @@ namespace KF
         {
             audioSource.PlayOneShot(WorldSoundFXManager.instance.rollSFX);
         }
+
+        public void PlayBackStepSoundFX()
+        {
+            audioSource.PlayOneShot(WorldSoundFXManager.instance.backStepSFX);
+        }
     }
 }

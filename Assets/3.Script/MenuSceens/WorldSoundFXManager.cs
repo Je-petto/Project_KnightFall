@@ -10,6 +10,7 @@ namespace KF
 
         [Header("Action SoundFX")]
         public AudioClip rollSFX;
+        public AudioClip backStepSFX;
         private void Awake()
         {
             if (instance == null)
