@@ -27,8 +27,6 @@ namespace KF
         [SerializeField] bool dodgeInput = false;
         [SerializeField] bool sprintInput = false;
         [SerializeField] bool jumpInput = false;
-        private float inputIgnoreTimer = 0f;
-        private bool ignoreInput = true;
 
         private void Awake()
         {
@@ -57,9 +55,6 @@ namespace KF
             if (NewScene.buildIndex == WorldSaveGameManager.instance.GetWorldSceneIndex())
             {
                 instance.enabled = true;
-
-                inputIgnoreTimer = 0f;
-                ignoreInput = true;
             }
             // otherwise disable our players control
             else
@@ -76,16 +71,8 @@ namespace KF
 
                 playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
                 playerControls.PlayerCamera.Movement.performed += i => cameraInput = i.ReadValue<Vector2>();
-                playerControls.PlayerActions.Dodge.performed += i =>
-                {
-                    if (!ignoreInput)
-                        dodgeInput = true;
-                };
-                playerControls.PlayerActions.Jump.performed += i =>
-                {
-                    if (!ignoreInput)
-                        jumpInput = true;
-                };
+                playerControls.PlayerActions.Dodge.performed += i => dodgeInput = true;
+                playerControls.PlayerActions.Jump.performed += i => jumpInput = true;
 
                 //Holding the input, Sets the bool to true, release to false
                 playerControls.PlayerActions.Sprint.performed += i => sprintInput = true;
@@ -103,16 +90,6 @@ namespace KF
 
         private void Update()
         {
-            if (ignoreInput)
-            {
-                inputIgnoreTimer += Time.unscaledDeltaTime;
-                if (inputIgnoreTimer > 0.2f) // 0.2초 동안 입력 무시
-                {
-                    ignoreInput = false;
-                }
-                return;
-            }
-
             HandleAllInputs();
         }
 
@@ -195,4 +172,5 @@ namespace KF
             }
         }
     }
+    
 }

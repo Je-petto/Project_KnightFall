@@ -2027,12 +2027,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582e0fc3ef4e15b48baa330c602f5e51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isDead: 0
   characterController: {fileID: 6136997000913809483}
   animator: {fileID: 0}
-  characterEffectsManager: {fileID: 0}
-  characterStatsManager: {fileID: 0}
-  characterAnimatorManager: {fileID: 0}
   isPerformingAction: 0
   isSprinting: 0
   isJumping: 0
@@ -2040,10 +2036,8 @@ MonoBehaviour:
   applyRootMotion: 0
   canRotate: 1
   canMove: 1
-  isPlayer: 0
   playerAnimatorManager: {fileID: 0}
   playerLocomotionManager: {fileID: 0}
-  characterName: 
 --- !u!114 &2714318336952104233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2110,10 +2104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c5e6127e1662eb4c9147e21e466a794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  vitality: 10
-  baseHealth: 40
-  maxHealth: 0
 --- !u!143 &6136997000913809483
 CharacterController:
   m_ObjectHideFlags: 0

@@ -23,11 +23,5 @@ namespace KF
         public float xCoord;
         public float yCoord;
         public float zCoord;
-
-        [Header("Resources")]
-        public int currentHealth;
-
-        [Header("Stats")]
-        public int vitality;
     }
 }

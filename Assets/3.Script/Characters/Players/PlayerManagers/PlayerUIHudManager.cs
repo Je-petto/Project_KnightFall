@@ -14,7 +14,7 @@ namespace KF
             healthBar.gameObject.SetActive(true);
         }
 
-        public void SetNewHeathValue(int oldValue, int newValue)
+        public void SetNewHeathValue(float oldValue, float newValue)
         {
             healthBar.SetStat(Mathf.RoundToInt(newValue));
         }

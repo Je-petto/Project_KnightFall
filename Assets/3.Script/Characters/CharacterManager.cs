@@ -11,8 +11,6 @@ namespace KF
         [HideInInspector] public CharacterController characterController;
         [HideInInspector] public Animator animator;
         [HideInInspector] public CharacterEffectsManager characterEffectsManager;
-        [HideInInspector] public CharacterStatsManager characterStatsManager;
-        [HideInInspector] public CharacterAnimatorManager characterAnimatorManager;
 
         [Header("Flags")]
         public bool isPerformingAction = false;
@@ -23,19 +21,13 @@ namespace KF
         public bool canRotate = true;
         public bool canMove = true;
 
-        [Header("Type")]
-        public bool isPlayer = false;
-
 
         protected virtual void Awake()
         {
             DontDestroyOnLoad(this);
             animator = GetComponent<Animator>();
-
             characterController = GetComponent<CharacterController>();
             characterEffectsManager = GetComponent<CharacterEffectsManager>();
-            characterStatsManager = GetComponent<CharacterStatsManager>();
-            characterAnimatorManager = GetComponent<CharacterAnimatorManager>();
         }
 
         protected virtual void Update()
@@ -45,22 +37,7 @@ namespace KF
 
         protected virtual void LateUpdate()
         {
-
-        }
-
-        public virtual IEnumerator ProcessDeathEvent(bool manuallySelectDeathAnimation = false)
-        {
-            if (isPlayer && !isDead)
-            {
-                isDead = true;
-
-                if (!manuallySelectDeathAnimation)
-                {
-                    characterAnimatorManager.PlayTargetActionAnimation("Dead_01", true);
-                }
-            }
-
-            yield return new WaitForSeconds(5);
+            
         }
     }
 }
