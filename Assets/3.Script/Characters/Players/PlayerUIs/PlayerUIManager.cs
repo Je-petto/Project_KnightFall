@@ -8,6 +8,7 @@ namespace KF
     {
         public static PlayerUIManager instance;
         [HideInInspector] public PlayerUIHudManager playerUIHudManager;
+        [HideInInspector] public PlayerUIPopupManager playerUIPopupManager;
         private void Awake()
         {
             if (instance == null)
@@ -18,8 +19,9 @@ namespace KF
             {
                 Destroy(gameObject);
             }
-            
+
             playerUIHudManager = GetComponentInChildren<PlayerUIHudManager>();
+            playerUIPopupManager = GetComponentInChildren<PlayerUIPopupManager>();
         }
 
         private void Start()

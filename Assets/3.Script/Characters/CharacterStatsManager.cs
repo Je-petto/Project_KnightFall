@@ -35,6 +35,36 @@ namespace KF
         {
             return vitality * baseHealth;
         }
+
+        public void SetCurrentHealth(int newValue)
+        {
+            int oldValue = currentHealth;
+            currentHealth = newValue;
+
+            if (healthBar != null)
+            {
+                healthBar.SetStat(currentHealth);
+            }
+
+            CheckHP(oldValue, newValue);
+        }
+
+        public void CheckHP(int oldValue, int newValue)
+        {
+            if (currentHealth <= 0)
+            {
+                StartCoroutine(character.ProcessDeathEvent());
+            }
+
+            //prevents from over healing
+            if (character)
+            {
+                if (character.isPlayer && currentHealth > maxHealth)
+                {
+                    currentHealth = maxHealth;
+                }
+            }
+        }
     }
 }
 

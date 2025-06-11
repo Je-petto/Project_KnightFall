@@ -20,9 +20,8 @@ namespace KF
             base.Start();
 
             CalculateHealthBasedOnVitalityLevel(vitality);
-            
-        }
 
+        }
     }
 }
 

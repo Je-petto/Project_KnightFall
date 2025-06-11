@@ -68,7 +68,11 @@ namespace KF
             }
 
             var stats = character.GetComponent<CharacterStatsManager>();
-            character.GetComponent<CharacterStatsManager>().currentHealth -= (int)finalDamageDealt;
+
+            //character.GetComponent<CharacterStatsManager>().currentHealth -= (int)finalDamageDealt;
+            int newHealth = stats.currentHealth - (int)finalDamageDealt;
+            stats.SetCurrentHealth(newHealth);
+            
             Debug.Log("FinalDamage Given" + finalDamageDealt);
 
             if (stats.healthBar != null)

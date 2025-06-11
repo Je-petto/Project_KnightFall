@@ -17,4 +17,11 @@ namespace KF
         CharacterSlot_05,
         NO_SLOT
     }
+
+    public enum WeaponModelSlot
+    {
+        RightHand,
+        LeftHand,
+        Back
+    }
 }

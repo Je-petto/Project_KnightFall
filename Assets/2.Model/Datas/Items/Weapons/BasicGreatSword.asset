@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4dca79d7759a984f911a9c4ccace350, type: 3}
+  m_Name: BasicGreatSword
+  m_EditorClassIdentifier: 
+  itemName: Basic GreatSword
+  itemIcon: {fileID: 21300000, guid: ab66650a300f9114499d122fdaf15084, type: 3}
+  itmeDescription: 
+  itemID: 0
+  weaponModel: {fileID: 1381369685818605231, guid: b7f0cc895a9a2eb44a4e0953955b77aa, type: 3}
+  poiseDamage: 10
+  physicalDamage: 50
+  specialDamage: 0
