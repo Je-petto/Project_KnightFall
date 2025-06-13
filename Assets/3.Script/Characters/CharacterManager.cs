@@ -36,6 +36,14 @@ namespace KF
             characterAnimatorManager = GetComponent<CharacterAnimatorManager>();
         }
 
+        public void OnEquipAnimationComplete()
+        {
+            isPerformingAction = false;
+            canMove = true;
+            applyRootMotion = false;
+            Debug.Log("무기 장착 애니메이션 완료: 상태 복원됨");
+        }
+
         protected virtual void Update()
         {
             animator.SetBool("isGrounded", isGrounded);

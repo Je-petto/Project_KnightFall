@@ -3505,6 +3505,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526213170}
   m_CullTransparentMesh: 1
+--- !u!1 &1558048770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1558048772}
+  - component: {fileID: 1558048771}
+  m_Layer: 0
+  m_Name: World Item Database
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1558048771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558048770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd0f26cad78fe1439297724dde15b1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unarmedWeapon: {fileID: 11400000, guid: 9280de23c9e246249b91cbe564bdff50, type: 2}
+  weapons:
+  - {fileID: 11400000, guid: 9280de23c9e246249b91cbe564bdff50, type: 2}
+  - {fileID: 11400000, guid: 5d01671bc83329047880fcf8a13edb5c, type: 2}
+  - {fileID: 11400000, guid: 03bcfcb50fd0fe445bf703ae5e20f888, type: 2}
+--- !u!4 &1558048772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558048770}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1691989599
 GameObject:
   m_ObjectHideFlags: 0
@@ -4511,6 +4560,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5892195150392572664, guid: c361bbc6520ce114d8fd8373bc120f3f, type: 3}
+      propertyPath: currentLeftHandWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 52a8256cc9e50ee4baf5cdb037cdbbeb, type: 2}
+    - target: {fileID: 5892195150392572664, guid: c361bbc6520ce114d8fd8373bc120f3f, type: 3}
+      propertyPath: currentRightHandWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 52a8256cc9e50ee4baf5cdb037cdbbeb, type: 2}
+    - target: {fileID: 5892195150392572664, guid: c361bbc6520ce114d8fd8373bc120f3f, type: 3}
+      propertyPath: weaponInLeftHandSlots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892195150392572664, guid: c361bbc6520ce114d8fd8373bc120f3f, type: 3}
+      propertyPath: weaponInRightHandSlots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892195150392572664, guid: c361bbc6520ce114d8fd8373bc120f3f, type: 3}
+      propertyPath: weaponInLeftHandSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9280de23c9e246249b91cbe564bdff50, type: 2}
+    - target: {fileID: 5892195150392572664, guid: c361bbc6520ce114d8fd8373bc120f3f, type: 3}
+      propertyPath: weaponInLeftHandSlots.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9280de23c9e246249b91cbe564bdff50, type: 2}
+    - target: {fileID: 5892195150392572664, guid: c361bbc6520ce114d8fd8373bc120f3f, type: 3}
+      propertyPath: weaponInLeftHandSlots.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9280de23c9e246249b91cbe564bdff50, type: 2}
+    - target: {fileID: 5892195150392572664, guid: c361bbc6520ce114d8fd8373bc120f3f, type: 3}
+      propertyPath: weaponInRightHandSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9280de23c9e246249b91cbe564bdff50, type: 2}
+    - target: {fileID: 5892195150392572664, guid: c361bbc6520ce114d8fd8373bc120f3f, type: 3}
+      propertyPath: weaponInRightHandSlots.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d01671bc83329047880fcf8a13edb5c, type: 2}
+    - target: {fileID: 5892195150392572664, guid: c361bbc6520ce114d8fd8373bc120f3f, type: 3}
+      propertyPath: weaponInRightHandSlots.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 03bcfcb50fd0fe445bf703ae5e20f888, type: 2}
     - target: {fileID: 7301109859638124438, guid: c361bbc6520ce114d8fd8373bc120f3f, type: 3}
       propertyPath: m_Name
       value: Emilia
@@ -5368,3 +5457,4 @@ SceneRoots:
   - {fileID: 746330749}
   - {fileID: 1308191689}
   - {fileID: 5143706435935381085}
+  - {fileID: 1558048772}

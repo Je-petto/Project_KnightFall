@@ -6,6 +6,9 @@ namespace KF
 {
     public class DamageCollider : MonoBehaviour
     {
+        [Header("Collider")]
+        protected Collider damageCollider;
+
         [Header("Damage")]
         public float physicalDamage = 0;
         public float specialDamage = 0;
@@ -40,12 +43,23 @@ namespace KF
             TakeDamageEffect damageEffect = Instantiate(WorldCharacterEffectsManager.instance.takeDamageEffect);
 
             damageEffect.characterEffectsManager = damageTarget.characterEffectsManager;
-            
+
             damageEffect.physicalDamage = physicalDamage;
             damageEffect.specialDamage = specialDamage;
             damageEffect.contactPoint = contactPoint;
 
             damageEffect.characterEffectsManager.ProcessInstantEffect(damageEffect);
+        }
+
+        public virtual void EnableDamageCollider()
+        {
+            damageCollider.enabled = true;
+        }
+
+        public virtual void DisableDamageCollider()
+        {
+            damageCollider.enabled = false;
+            charactersDamaged.Clear(); // We reset the characters that have been it so we can hit again
         }
     }
 

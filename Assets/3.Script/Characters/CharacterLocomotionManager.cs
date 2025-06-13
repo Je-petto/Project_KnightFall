@@ -49,7 +49,7 @@ namespace KF
 
                 yVelocity.y += gravityForce * Time.deltaTime;
             }
-
+            
             character.characterController.Move(yVelocity * Time.deltaTime);
         }
 
