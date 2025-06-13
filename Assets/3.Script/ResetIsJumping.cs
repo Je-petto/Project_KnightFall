@@ -16,7 +16,11 @@ namespace KF
                 character = animator.GetComponent<CharacterManager>();
             }
 
-            character.isJumping = false;
+            if (character.isPlayer)
+            {
+                character.isJumping = false;               
+            }
+
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -24,4 +24,11 @@ namespace KF
         LeftHand,
         Back
     }
+
+    public enum AttackType
+    {
+        LightAttack01,
+        LightAttack02,
+        LightAttack03
+    }
 }

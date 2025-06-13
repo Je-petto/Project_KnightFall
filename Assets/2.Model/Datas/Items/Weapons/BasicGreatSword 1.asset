@@ -20,3 +20,4 @@ MonoBehaviour:
   poiseDamage: 10
   physicalDamage: 50
   specialDamage: 0
+  oh_RB_Action: {fileID: 11400000, guid: 8d9fb3b19d3eda54cb63d780d0528b91, type: 2}

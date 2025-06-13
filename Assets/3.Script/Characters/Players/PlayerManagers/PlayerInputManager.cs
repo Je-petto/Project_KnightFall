@@ -27,6 +27,7 @@ namespace KF
         [SerializeField] bool dodgeInput = false;
         [SerializeField] bool sprintInput = false;
         [SerializeField] bool jumpInput = false;
+        [SerializeField] bool RB_Input = false;
 
         private void Awake()
         {
@@ -48,6 +49,10 @@ namespace KF
             SceneManager.activeSceneChanged += OnSceneChange;
 
             instance.enabled = false;
+
+            if (playerControls != null)
+                playerControls.Disable();
+
         }
         private void OnSceneChange(Scene oldScene, Scene NewScene)
         {
@@ -55,11 +60,15 @@ namespace KF
             if (NewScene.buildIndex == WorldSaveGameManager.instance.GetWorldSceneIndex())
             {
                 instance.enabled = true;
+                if (playerControls != null)
+                    playerControls.Enable();
             }
             // otherwise disable our players control
             else
             {
                 instance.enabled = false;
+                if (playerControls != null)
+                    playerControls.Disable();
             }
         }
 
@@ -73,6 +82,7 @@ namespace KF
                 playerControls.PlayerCamera.Movement.performed += i => cameraInput = i.ReadValue<Vector2>();
                 playerControls.PlayerActions.Dodge.performed += i => dodgeInput = true;
                 playerControls.PlayerActions.Jump.performed += i => jumpInput = true;
+                playerControls.PlayerActions.RB.performed += i => RB_Input = true;
 
                 //Holding the input, Sets the bool to true, release to false
                 playerControls.PlayerActions.Sprint.performed += i => sprintInput = true;
@@ -100,6 +110,7 @@ namespace KF
             HandleDodgeInput();
             HandleSprintInput();
             HandleJumpInput();
+            HandleRBInput();
         }
 
         //MOVEMENT
@@ -169,6 +180,17 @@ namespace KF
                 jumpInput = false;
 
                 player.playerLocomotionManager.AttemptToPerformJump();
+            }
+        }
+
+        private void HandleRBInput()
+        {
+            if (RB_Input)
+            {
+                RB_Input = false;
+
+                player.playerCombatManager.PerformWeaponBasedAction(player.playerInventoryManager.currentRightHandWeapon.oh_RB_Action,
+                player.playerInventoryManager.currentRightHandWeapon);
             }
         }
     }

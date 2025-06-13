@@ -15,8 +15,10 @@ namespace KF
         [HideInInspector] public PlayerStatsManager playerStatsManager;
         [HideInInspector] public PlayerInventoryManager playerInventoryManager;
         [HideInInspector] public PlayerEquipmentManager playerEquipmentManager;
+        [HideInInspector] public PlayerCombatManager playerCombatManager;
 
         public string characterName;
+        public WeaponItem currentWeaponBeingUsed;
 
         protected override void Awake()
         {
@@ -28,6 +30,7 @@ namespace KF
             playerStatsManager = GetComponent<PlayerStatsManager>();
             playerInventoryManager = GetComponent<PlayerInventoryManager>();
             playerEquipmentManager = GetComponent<PlayerEquipmentManager>();
+            playerCombatManager = GetComponent<PlayerCombatManager>();
         }
 
         protected override void Update()
@@ -136,6 +139,21 @@ namespace KF
             else
             {
                 Debug.LogWarning("Instantiated weapon model does not have WeaponManager component!");
+            }
+        }
+
+        private void PerformWeaponBasedAction(int actionID, int weaponID)
+        {
+            WeaponItemAction weaponAction = WorldActionManager.instance.GetWeaponItemActionByID(actionID);
+
+
+            if(weaponAction != null)
+            {
+                weaponAction.AttemptToPerformAction(this, WorldItemDatabase.Instance.GetWeaponByID(weaponID));
+            }
+            else
+            {
+                Debug.LogError("Action is Null, cannot be performed");
             }
         }
 

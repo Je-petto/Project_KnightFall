@@ -15,8 +15,9 @@ MonoBehaviour:
   itemName: Basic GreatSword
   itemIcon: {fileID: 21300000, guid: ab66650a300f9114499d122fdaf15084, type: 3}
   itmeDescription: 
-  itemID: 0
+  itemID: 1
   weaponModel: {fileID: 1381369685818605231, guid: b7f0cc895a9a2eb44a4e0953955b77aa, type: 3}
   poiseDamage: 10
   physicalDamage: 50
   specialDamage: 0
+  oh_RB_Action: {fileID: 11400000, guid: 8d9fb3b19d3eda54cb63d780d0528b91, type: 2}

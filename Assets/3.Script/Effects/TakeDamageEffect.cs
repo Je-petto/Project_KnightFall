@@ -43,14 +43,20 @@ namespace KF
 
             characterStatsManager = character.GetComponent<CharacterStatsManager>();
 
+            if (characterStatsManager == null)
+            {
+                Debug.LogError("[TakeDamageEffect] characterStatsManager is null on: " + character.name);
+                return;
+            }
+
             //If character is dead, no additional damage effects should be process
             if (character.isDead)
                 return;
 
             //check for invulnerability
             CalculateDamage(character);
-
-
+            PlayDamageSFX(character);
+            PlayDamageVFX(character);
         }
 
         private void CalculateDamage(CharacterManager character)
@@ -72,15 +78,34 @@ namespace KF
             //character.GetComponent<CharacterStatsManager>().currentHealth -= (int)finalDamageDealt;
             int newHealth = stats.currentHealth - (int)finalDamageDealt;
             stats.SetCurrentHealth(newHealth);
-            
+
             Debug.Log("FinalDamage Given" + finalDamageDealt);
 
             if (stats.healthBar != null)
             {
                 stats.healthBar.SetStat(stats.currentHealth);
             }
+        }
 
+        private void PlayDamageVFX(CharacterManager character)
+        {
+            character.characterEffectsManager.PlayHitVFX(contactPoint);
+        }
 
+        private void PlayDamageSFX(CharacterManager character)
+        {
+            if (WorldSoundFXManager.instance == null)
+            {
+                Debug.LogError("WorldSoundFXManager.instance is null!");
+                return;
+            }
+            AudioClip physicalDamageSFX = WorldSoundFXManager.instance.ChooseRandomSFXFromArray(WorldSoundFXManager.instance.physicalDamageSFX);
+            if (physicalDamageSFX == null)
+            {
+                Debug.LogError("Selected physicalDamageSFX is null!");
+                return;
+            }
+            character.characterSoundFXManager.PlaySoundFX(physicalDamageSFX);
         }
     }
 

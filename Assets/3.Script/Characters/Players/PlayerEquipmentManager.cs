@@ -160,5 +160,15 @@ namespace KF
             // 무기 장착
             player.EquipWeaponOnRightHand(selectedWeapon);
         }
+
+        public void OpenDamageCollider()
+        {
+            rightWeaponManager.meleeDamageCollider.EnableDamageCollider();
+        }
+
+        public void CloseDamageCollider()
+        {
+            rightWeaponManager.meleeDamageCollider.DisableDamageCollider();
+        }
     }
 }
