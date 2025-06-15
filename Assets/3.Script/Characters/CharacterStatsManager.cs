@@ -2,70 +2,72 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace KF
+namespace SG
 {
     public class CharacterStatsManager : MonoBehaviour
     {
         CharacterManager character;
-        public UI_StatBar healthBar;
 
-        [Header("Character Stats")]
-        public int vitality = 10;
-        public int baseHealth = 20;
-        public int maxHealth;
-        public int currentHealth;
+        [Header("Stamina Regeneration")]
+        [SerializeField] float staminaRegenerationAmount = 2;
+        private float staminaRegenerationTimer = 0;
+        private float staminaTickTimer = 0;
+        [SerializeField] float staminaRegenerationDelay = 2;
 
         protected virtual void Awake()
         {
             character = GetComponent<CharacterManager>();
         }
 
-        protected virtual void Start()
+        public int CalculateStaminaBasedOnEnduranceLevel(int endurance)
         {
-            maxHealth = CalculateHealthBasedOnVitalityLevel(vitality);
-            currentHealth = maxHealth;
+            float stamina = 0;
 
-            if (healthBar != null)
-            {
-                healthBar.SetMaxStat(maxHealth);
-            }
+            //  CREATE AN EQUATION FOR HOW YOU WANT YOUR STAMINA TO BE CALCULATED
+
+            stamina = endurance * 10;
+
+            return Mathf.RoundToInt(stamina);
         }
 
-        public int CalculateHealthBasedOnVitalityLevel(int vitality)
+        public virtual void RegenerateStamina()
         {
-            return vitality * baseHealth;
-        }
+            //  ONLY OWNERS CAN EDIT THEIR NETWORK VARAIBLES
+            if (!character.IsOwner)
+                return;
 
-        public void SetCurrentHealth(int newValue)
-        {
-            int oldValue = currentHealth;
-            currentHealth = newValue;
+            //  WE DO NOT WANT TO REGENERATE STAMINA IF WE ARE USING IT
+            if (character.characterNetworkManager.isSprinting.Value)
+                return;
 
-            if (healthBar != null)
+            if (character.isPerformingAction)
+                return;
+
+            staminaRegenerationTimer += Time.deltaTime;
+
+            if (staminaRegenerationTimer >= staminaRegenerationDelay)
             {
-                healthBar.SetStat(currentHealth);
-            }
-
-            CheckHP(oldValue, newValue);
-        }
-
-        public void CheckHP(int oldValue, int newValue)
-        {
-            if (currentHealth <= 0)
-            {
-                StartCoroutine(character.ProcessDeathEvent());
-            }
-
-            //prevents from over healing
-            if (character)
-            {
-                if (character.isPlayer && currentHealth > maxHealth)
+                if (character.characterNetworkManager.currentStamina.Value < character.characterNetworkManager.maxStamina.Value)
                 {
-                    currentHealth = maxHealth;
+                    staminaTickTimer += Time.deltaTime;
+
+                    if (staminaTickTimer >= 0.1)
+                    {
+                        staminaTickTimer = 0;
+                        character.characterNetworkManager.currentStamina.Value += staminaRegenerationAmount;
+                    }
                 }
+            }
+        }
+
+        public virtual void ResetStaminaRegenTimer(float previousStaminaAmount, float currentStaminaAmount)
+        {
+            //  WE ONLY WANT TO RESET THE REGENERATION IF THE ACTION USED STAMINA
+            //  WE DONT WANT TO RESET THE REGENERATION IF WE ARE ALREADY REGENERATING STAMINA
+            if (currentStaminaAmount < previousStaminaAmount)
+            {
+                staminaRegenerationTimer = 0;
             }
         }
     }
 }
-
-    

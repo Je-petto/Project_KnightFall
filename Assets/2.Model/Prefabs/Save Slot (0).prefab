@@ -284,9 +284,9 @@ GameObject:
   - component: {fileID: 7457546615345414267}
   - component: {fileID: 6852707727178372130}
   - component: {fileID: 8637437988271987150}
-  - component: {fileID: -5804939480880523906}
   - component: {fileID: 8312351850088297523}
   - component: {fileID: 5676880203656485356}
+  - component: {fileID: 7915387196235827559}
   m_Layer: 5
   m_Name: Save Slot (0)
   m_TagString: Untagged
@@ -337,7 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -353,21 +353,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-5804939480880523906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6489766947167169053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3047403b2c8084fbf17a97a7ed1840, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterSlot: 0
-  characterName: {fileID: 1437501484413102964}
-  timePlayed: {fileID: 2106570602735380233}
 --- !u!114 &8312351850088297523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,8 +397,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -5804939480880523906}
-        m_TargetAssemblyTypeName: KF.UI_Character_Save_Slot, Assembly-CSharp
+      - m_Target: {fileID: 7915387196235827559}
+        m_TargetAssemblyTypeName: SG.UI_Character_Save_Slot, Assembly-CSharp
         m_MethodName: LoadGameFromCharacterSlot
         m_Mode: 1
         m_Arguments:
@@ -441,8 +426,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: -5804939480880523906}
-          m_TargetAssemblyTypeName: KF.UI_Character_Save_Slot, Assembly-CSharp
+        - m_Target: {fileID: 7915387196235827559}
+          m_TargetAssemblyTypeName: SG.UI_Character_Save_Slot, Assembly-CSharp
           m_MethodName: SelectCurrentSlot
           m_Mode: 1
           m_Arguments:
@@ -453,6 +438,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &7915387196235827559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6489766947167169053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6f639c076fdd564595004789ac02f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSlot: 0
+  characterName: {fileID: 1437501484413102964}
+  timedPlayed: {fileID: 2106570602735380233}
 --- !u!1 &9164789933753591645
 GameObject:
   m_ObjectHideFlags: 0
