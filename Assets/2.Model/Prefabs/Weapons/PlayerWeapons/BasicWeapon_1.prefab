@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5039085036452632714}
-  - component: {fileID: 7207381842146976745}
+  - component: {fileID: 960676593124530609}
   m_Layer: 0
   m_Name: BasicWeapon_1
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 3672071005252035907}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7207381842146976745
+--- !u!114 &960676593124530609
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1381369685818605231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b2aa4911a6fa4e448cac21636a3e518, type: 3}
+  m_Script: {fileID: 11500000, guid: fa1e33ec717bb1f4ead11ea6acb477eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeDamageCollider: {fileID: 3313948497357803645}
+  meleeDamageCollider: {fileID: 433980837403557888}
 --- !u!1 &4123549999483325422
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7516916405184791646}
   - component: {fileID: 7749090310920345869}
-  - component: {fileID: 3313948497357803645}
+  - component: {fileID: 433980837403557888}
   m_Layer: 10
   m_Name: DamageCollider
   m_TagString: Untagged
@@ -132,7 +132,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 0.38}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3313948497357803645
+--- !u!114 &433980837403557888
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,13 +141,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8750078801461158360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c226d9cfcb3a360418818127efe549f8, type: 3}
+  m_Script: {fileID: 11500000, guid: e7031d8faa7064d4a94ac444186b79f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageCollider: {fileID: 7749090310920345869}
   physicalDamage: 0
-  specialDamage: 0
-  contactPoint: {x: 0, y: 0, z: 0}
+  magicDamage: 0
+  fireDamage: 0
+  lightningDamage: 0
+  holyDamage: 0
   characterCausingDamage: {fileID: 0}
   light_Attack_01_Modifier: 0
 --- !u!1001 &2914265837790584336

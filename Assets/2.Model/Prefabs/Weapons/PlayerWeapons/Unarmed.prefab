@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7250839128402971415}
-  - component: {fileID: 6724879120062920729}
   - component: {fileID: 7039453090778867864}
+  - component: {fileID: 6322922448701859040}
   m_Layer: 10
   m_Name: DamageCollider
   m_TagString: Untagged
@@ -33,24 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5250077296437219507}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6724879120062920729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3779743740476070591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c226d9cfcb3a360418818127efe549f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageCollider: {fileID: 7039453090778867864}
-  physicalDamage: 0
-  specialDamage: 0
-  contactPoint: {x: 0, y: 0, z: 0}
-  characterCausingDamage: {fileID: 0}
-  light_Attack_01_Modifier: 0
 --- !u!135 &7039453090778867864
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -70,8 +52,28 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6322922448701859040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3779743740476070591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7031d8faa7064d4a94ac444186b79f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCollider: {fileID: 7039453090778867864}
+  physicalDamage: 0
+  magicDamage: 0
+  fireDamage: 0
+  lightningDamage: 0
+  holyDamage: 0
+  characterCausingDamage: {fileID: 0}
+  light_Attack_01_Modifier: 0
 --- !u!1 &4656690940901658868
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5589949067324878006}
-  - component: {fileID: 2428593074054667635}
+  - component: {fileID: 2276296695076596408}
   m_Layer: 0
   m_Name: Unarmed
   m_TagString: Untagged
@@ -221,7 +223,7 @@ Transform:
   - {fileID: 9071528402528266958}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2428593074054667635
+--- !u!114 &2276296695076596408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -230,7 +232,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7323488108617703234}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b2aa4911a6fa4e448cac21636a3e518, type: 3}
+  m_Script: {fileID: 11500000, guid: fa1e33ec717bb1f4ead11ea6acb477eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeDamageCollider: {fileID: 6724879120062920729}
+  meleeDamageCollider: {fileID: 6322922448701859040}

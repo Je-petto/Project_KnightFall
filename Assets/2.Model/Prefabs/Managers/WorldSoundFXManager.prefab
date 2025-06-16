@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rollSFX: {fileID: 8300000, guid: bad7eb15e1bed764f83e0aaddcfe2e55, type: 3}
-  backStepSFX: {fileID: 0}
+  backStepSFX: {fileID: 8300000, guid: 2647c04d028a85e46814cc473a0787ba, type: 3}

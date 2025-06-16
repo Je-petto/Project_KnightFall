@@ -29,7 +29,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hit_Left_Medium_02
+  m_Name: Hit_Left_Medium_02
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -56,7 +56,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hit_Forward_Medium_02
+  m_Name: Hit_Forward_Medium_02
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -188,7 +188,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hit_Forward_Medium_01
+  m_Name: Hit_Forward_Medium_01
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -354,7 +354,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hit_Right_Medium_02
+  m_Name: Hit_Right_Medium_02
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1146,7 +1146,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hit_Right_Medium_01
+  m_Name: Hit_Right_Medium_01
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1295,7 +1295,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hit_Backward_Medium_02
+  m_Name: Hit_Backward_Medium_02
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -1349,7 +1349,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: hit_Left_Medium_01
+  m_Name: Hit_Left_Medium_01
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

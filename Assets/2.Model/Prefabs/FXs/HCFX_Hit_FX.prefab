@@ -4938,7 +4938,7 @@ GameObject:
   - component: {fileID: 5529381066828500139}
   - component: {fileID: 5529381066828500137}
   - component: {fileID: 5529381066828500138}
-  - component: {fileID: 6257581903921332469}
+  - component: {fileID: 5271578692836190060}
   m_Layer: 0
   m_Name: HCFX_Hit_FX
   m_TagString: Untagged
@@ -9917,7 +9917,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &6257581903921332469
+--- !u!114 &5271578692836190060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9926,9 +9926,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5529381066828500132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e9d0c10d5e2dc044954992e9500af10, type: 3}
+  m_Script: {fileID: 11500000, guid: f1c858265b06a7e498d7e6679b1532a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeUntilDestroyed: 5
 --- !u!1 &5529381067046022394
 GameObject:
   m_ObjectHideFlags: 0
