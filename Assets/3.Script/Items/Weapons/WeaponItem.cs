@@ -31,9 +31,12 @@ namespace SG
         //  OFFENSIVE  POISE BONUS WHEN ATTACKING
 
         [Header("Attack Modifiers")]
-        public float light_Attack_01_Modifier = 1.1f;
-        //  HEAVY ATTACK MODIFIER
-        //  CRITICAL DAMAGE MODIFIER ECT
+        public float light_Attack_01_Modifier = 1.0f;
+        public float light_Attack_02_Modifier = 1.2f;
+        public float heavy_Attack_01_Modifier = 1.4f;
+        public float heavy_Attack_02_Modifier = 1.6f;
+        public float charge_Attack_01_Modifier = 2.0f;
+        public float charge_Attack_02_Modifier = 2.2f;
 
         [Header("Stamina Cost Modifiers")]
         public int baseStaminaCost = 20;
@@ -44,7 +47,7 @@ namespace SG
 
         [Header("Actions")]
         public WeaponItemAction oh_RB_Action;   // ONE HAND RIGHT BUMPER ACTION
-        
+        public WeaponItemAction oh_RT_Action;   // ONE HAND RIGHT TRIGGER ACTION
         //  ASH OF WAR
 
         //  BLOCKING SOUNDS

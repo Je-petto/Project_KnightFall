@@ -49,7 +49,6 @@ namespace SG
                 return;
 
             //  CHECK FOR "INVULNERABILITY"
-
             CalculateDamage(character);
             PlayDirectionalBasedDamageAnimation(character);
             //  CHECK FOR BUILD UPS (POISON, BLEED ECT)
@@ -107,6 +106,9 @@ namespace SG
         private void PlayDirectionalBasedDamageAnimation(CharacterManager character)
         {
             if (!character.IsOwner)
+                return;
+
+            if (character.isDead.Value)
                 return;
 
             //  TODO CALCULATE IF POISE IS BROKEN

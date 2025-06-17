@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GreatSword
   m_EditorClassIdentifier: 
   itemName: BasicWeapon
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: ab66650a300f9114499d122fdaf15084, type: 3}
   itemDescription: 
   itemID: 1
   weaponModel: {fileID: 1381369685818605231, guid: b7f0cc895a9a2eb44a4e0953955b77aa, type: 3}
@@ -28,6 +28,9 @@ MonoBehaviour:
   lightningDamage: 0
   poiseDamage: 10
   light_Attack_01_Modifier: 1.1
+  heavy_Attack_01_Modifier: 1.4
+  charge_Attack_01_Modifier: 2
   baseStaminaCost: 0
   lightAttackStaminaCostMultiplier: 0
   oh_RB_Action: {fileID: 11400000, guid: 5376096ae2e832b45a710dc42348be4f, type: 2}
+  oh_RT_Action: {fileID: 11400000, guid: 11efb5ace373fa64d981866ffdde5beb, type: 2}
