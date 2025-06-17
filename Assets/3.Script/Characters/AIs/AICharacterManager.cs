@@ -20,8 +20,8 @@ namespace SG
         [Header("States")]
         public IdleState idle;
         public PursueTargetState pursueTarget;
-        //  COMBAT STANCE
-        //  ATTACK
+        public CombatStanceState combatStance;
+        public AttackState attack;
 
         protected override void Awake()
         {
@@ -40,11 +40,19 @@ namespace SG
             currentState = idle;
         }
 
+        protected override void Update()
+        {
+            base.Update();
+
+            aiCharacterCombatManager.HandleActionRecovery(this);
+        }
+
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
 
-            ProcessStateMachine();
+            if (IsOwner)
+                ProcessStateMachine();
         }
 
         //  OPTION 01
@@ -60,6 +68,13 @@ namespace SG
             //  THE POSITION/ROTATION SHOULD BE RESET ONLY AFTER THE STATE MACHINE HAS PROCESSED IT'S TICK
             navMeshAgent.transform.localPosition = Vector3.zero;
             navMeshAgent.transform.localRotation = Quaternion.identity;
+
+            if (aiCharacterCombatManager.currentTarget != null)
+            {
+                aiCharacterCombatManager.targetsDirection = aiCharacterCombatManager.currentTarget.transform.position - transform.position;
+                aiCharacterCombatManager.viewableAngle = WorldUtilityManager.Instance.GetAngleOfTarget(transform, aiCharacterCombatManager.targetsDirection);
+                aiCharacterCombatManager.distanceFromTarget = Vector3.Distance(transform.position, aiCharacterCombatManager.currentTarget.transform.position);
+            }
 
             if (navMeshAgent.enabled)
             {

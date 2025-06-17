@@ -22,9 +22,20 @@ namespace SG
             if (!aiCharacter.navMeshAgent.enabled)
                 aiCharacter.navMeshAgent.enabled = true;
 
+            //  IF OUR TARGET GOES OUTSIDE OF THE CHARACTERS F.O.V, PIVOT TO FACE THEM
+            if (aiCharacter.aiCharacterCombatManager.viewableAngle < aiCharacter.aiCharacterCombatManager.minimumFOV
+                || aiCharacter.aiCharacterCombatManager.viewableAngle > aiCharacter.aiCharacterCombatManager.maximumFOV)
+                aiCharacter.aiCharacterCombatManager.PivotTowardsTarget(aiCharacter);
+
             aiCharacter.aiCharacterLocomotionManager.RotateTowardsAgent(aiCharacter);
 
-            //  IF WE ARE WITHIN COMBAT RANGE OF A TARGET, SWITCH STATE TO COMBAT STANCE STATE
+            //  OPTION 01
+            //if (aiCharacter.aiCharacterCombatManager.distanceFromTarget <= aiCharacter.combatStance.maximumEngagementDistance)
+            //return SwitchState(aiCharacter, aiCharacter.combatStance);
+
+            //  OPTION 02
+            if (aiCharacter.aiCharacterCombatManager.distanceFromTarget <= aiCharacter.navMeshAgent.stoppingDistance)
+                return SwitchState(aiCharacter, aiCharacter.combatStance);
 
             //  IF THE TARGET IS NOT REACHABLE, AND THEY ARE FAR AWAY, RETURN HOME
 
