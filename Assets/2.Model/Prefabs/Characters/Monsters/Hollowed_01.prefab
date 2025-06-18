@@ -3391,6 +3391,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7365095ce6399a54283de24604276c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageGrunts:
+  - {fileID: 8300000, guid: 19d2d34da4711d943a2504836e56c845, type: 3}
+  - {fileID: 8300000, guid: 05615f45e585e6245acabdd7b4474a6c, type: 3}
+  - {fileID: 8300000, guid: e3959237a46a2b84382411a315f3dd19, type: 3}
+  - {fileID: 8300000, guid: 948f619f1d4c1c648af836055c645a88, type: 3}
+  attackGrunts:
+  - {fileID: 8300000, guid: 2203e094f2a6586499107c8228932fc4, type: 3}
+  - {fileID: 8300000, guid: a35b7f8a5623f5849b997235ba635be2, type: 3}
+  - {fileID: 8300000, guid: a2dc5788710d3aa46916fe0174e4fcef, type: 3}
 --- !u!1 &5881553976140800240
 GameObject:
   m_ObjectHideFlags: 0

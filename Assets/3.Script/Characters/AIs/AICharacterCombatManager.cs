@@ -6,6 +6,8 @@ namespace SG
 {
     public class AICharacterCombatManager : CharacterCombatManeger
     {
+        protected AICharacterManager aiCharacter;
+
         [Header("Action Recovery")]
         public float actionRecoveryTimer = 0;
 
@@ -26,6 +28,7 @@ namespace SG
         {
             base.Awake();
 
+            aiCharacter = GetComponent<AICharacterManager>();
             lockOnTransform = GetComponentInChildren<LockOnTransform>().transform;
         }
 

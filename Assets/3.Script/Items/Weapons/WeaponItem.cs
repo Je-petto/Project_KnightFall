@@ -51,5 +51,7 @@ namespace SG
         //  ASH OF WAR
 
         //  BLOCKING SOUNDS
+        [Header("Whooshes")]
+        public AudioClip[] whooshes;
     }
 }
