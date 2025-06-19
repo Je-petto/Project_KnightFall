@@ -38,7 +38,6 @@ namespace SG {
 
                 //  CHECK IF TARGET IS BLOCKING
 
-                //  CHECK IF TARGET IS INVULNERABLE
 
                 DamageTarget(damageTarget);
             }

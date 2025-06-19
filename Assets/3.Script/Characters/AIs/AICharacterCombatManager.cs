@@ -11,6 +11,9 @@ namespace SG
         [Header("Action Recovery")]
         public float actionRecoveryTimer = 0;
 
+        [Header("Pivot")]
+        public bool enablePivot = true;
+
         [Header("Target Information")]
         public float distanceFromTarget;
         public float viewableAngle;
@@ -32,7 +35,7 @@ namespace SG
             lockOnTransform = GetComponentInChildren<LockOnTransform>().transform;
         }
 
-        public void FindATargetViaLineOfSight(AICharacterManager aiCharacter)
+        public virtual void FindATargetViaLineOfSight(AICharacterManager aiCharacter)
         {
             if (currentTarget != null)
                 return;
@@ -74,14 +77,16 @@ namespace SG
                             targetsDirection = targetCharacter.transform.position - transform.position;
                             viewableAngle = WorldUtilityManager.Instance.GetAngleOfTarget(transform, targetsDirection);
                             aiCharacter.characterCombatManager.SetTarget(targetCharacter);
-                            PivotTowardsTarget(aiCharacter);
+
+                            if (enablePivot)
+                                PivotTowardsTarget(aiCharacter);
                         }
                     }
                 }
             }
         }
 
-        public void PivotTowardsTarget(AICharacterManager aiCharacter)
+        public virtual void PivotTowardsTarget(AICharacterManager aiCharacter)
         {
             //  PLAY A PIVOT ANIMATION DEPENDING ON VIEWABLE ANGLE OF TARGET
             if (aiCharacter.isPerformingAction)
