@@ -29,7 +29,7 @@ namespace SG
 
         public void OpenRightHandDamageCollider()
         {
-            aiCharacter.characterSoundFXManager.PlayAttackGrunt();
+            aiCharacter.characterSoundFXManager.PlayAttackGruntSoundFX();
             rightHandDamageCollider.EnableDamageCollider();
         }
 
@@ -40,7 +40,7 @@ namespace SG
 
         public void OpenLeftHandDamageCollider()
         {
-            aiCharacter.characterSoundFXManager.PlayAttackGrunt();
+            aiCharacter.characterSoundFXManager.PlayAttackGruntSoundFX();
             leftHandDamageCollider.EnableDamageCollider();
         }
 

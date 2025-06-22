@@ -2568,13 +2568,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 1.4
+  m_Height: 1.6
   m_Radius: 0.17
   m_SlopeLimit: 45
   m_StepOffset: 0.2
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9, z: 0}
+  m_Center: {x: 0, y: 0.81, z: 0}
 --- !u!54 &2007542302368315371
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2710,7 +2710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1108905663
+  GlobalObjectIdHash: 2428096039
   InScenePlacedSourceGlobalObjectIdHash: 833305173
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -2800,6 +2800,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49cf63477305dbb4386cd5fff9a3bdaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive:
+    m_InternalValue: 1
   networkPosition:
     m_InternalValue: {x: 0, y: 0, z: 0}
   networkRotation:
@@ -2816,6 +2818,8 @@ MonoBehaviour:
   moveAmount:
     m_InternalValue: 0
   currentTargetNetworkObjectID:
+    m_InternalValue: 0
+  isInvulnerable:
     m_InternalValue: 0
   isLockedOn:
     m_InternalValue: 0
