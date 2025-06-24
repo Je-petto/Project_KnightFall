@@ -898,7 +898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011354873027329814}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.6928357, z: 0, w: 0.7210955}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
   m_ConstrainProportionsScale: 1
@@ -907,7 +907,7 @@ Transform:
   - {fileID: 588887395084143038}
   - {fileID: 4188906793375888026}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -87.71, z: 0}
 --- !u!95 &5188149496543721379
 Animator:
   serializedVersion: 5
@@ -1203,14 +1203,14 @@ MonoBehaviour:
   maximumFOV: 35
   attackRotationSpeed: 25
   clubDamageCollider: {fileID: 6463001837402906550}
-  stompCollider: {fileID: 0}
+  stompCollider: {fileID: 3656619206744965028}
   stompAttackAOERadius: 1.5
   baseDamage: 25
   attack01DamageModifier: 1
   attack02DamageModifier: 1.4
   attack03DamageModifier: 1.6
   stompDamage: 25
-  durkImpactVFX: {fileID: 0}
+  durkImpactVFX: {fileID: 5862328161722201066, guid: 0fccd39ae46226e4084c40f7f8f2cc0d, type: 3}
 --- !u!114 &8690007197288317286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,12 +1300,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29a67e171eb02146bd732e305939edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageGrunts: []
-  attackGrunts: []
-  footSteps: []
-  clubWhooshes: []
-  clubImpacts: []
-  stompImpacts: []
+  damageGrunts:
+  - {fileID: 8300000, guid: 19d2d34da4711d943a2504836e56c845, type: 3}
+  - {fileID: 8300000, guid: 05615f45e585e6245acabdd7b4474a6c, type: 3}
+  - {fileID: 8300000, guid: e3959237a46a2b84382411a315f3dd19, type: 3}
+  - {fileID: 8300000, guid: 948f619f1d4c1c648af836055c645a88, type: 3}
+  attackGrunts:
+  - {fileID: 8300000, guid: 2203e094f2a6586499107c8228932fc4, type: 3}
+  - {fileID: 8300000, guid: a35b7f8a5623f5849b997235ba635be2, type: 3}
+  - {fileID: 8300000, guid: a2dc5788710d3aa46916fe0174e4fcef, type: 3}
+  footSteps:
+  - {fileID: 8300000, guid: 7327c3f57e16d9e4486faea1423e193d, type: 3}
+  - {fileID: 8300000, guid: 047479e7f5e77f743bfe8d691b397b6b, type: 3}
+  - {fileID: 8300000, guid: b62070c8ff42f5c468ea51958e40d8ba, type: 3}
+  - {fileID: 8300000, guid: ac949741913c0344a836850bc2d6e450, type: 3}
+  clubWhooshes:
+  - {fileID: 8300000, guid: 04880f90c69036e428464080f93ba4fe, type: 3}
+  - {fileID: 8300000, guid: 32e3c5e580db9d448876feffc7288f79, type: 3}
+  clubImpacts:
+  - {fileID: 8300000, guid: be920779620c8fe42bf643a74eccdf0b, type: 3}
+  - {fileID: 8300000, guid: f67c7f692f8ba9f4693312bb96606643, type: 3}
+  - {fileID: 8300000, guid: 6b45dcef6c92f464396bc7bc613452b8, type: 3}
+  stompImpacts:
+  - {fileID: 8300000, guid: fc96116dc3c141440aabb5605744fea2, type: 3}
 --- !u!114 &5087430121820684788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2037,6 +2054,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2166845438994235121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3215201232554027866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8428031036228865840}
+  - component: {fileID: 3656619206744965028}
+  - component: {fileID: 2245364055448359162}
+  m_Layer: 10
+  m_Name: HitVFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8428031036228865840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215201232554027866}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.063, y: 0.473, z: -0.061}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5393406325314307419}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3656619206744965028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215201232554027866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384742017efa0154da3eeffc27a05294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCollider: {fileID: 2245364055448359162}
+  physicalDamage: 0
+  magicDamage: 0
+  fireDamage: 0
+  lightningDamage: 0
+  holyDamage: 0
+  durkCharacterManager: {fileID: 0}
+--- !u!135 &2245364055448359162
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3215201232554027866}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3240577383466255406
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,6 +2426,7 @@ Transform:
   m_Children:
   - {fileID: 4702154972627231462}
   - {fileID: 5335317472204916498}
+  - {fileID: 8428031036228865840}
   m_Father: {fileID: 5410857542549026929}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &428315501531824783
