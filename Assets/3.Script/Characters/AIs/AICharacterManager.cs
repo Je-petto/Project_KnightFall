@@ -7,6 +7,9 @@ namespace SG
 {
     public class AICharacterManager : CharacterManager
     {
+        [Header("Character Name")]
+        public string characterName = "";
+
         [HideInInspector] public AICharacterNetworkManager aiCharacterNetworkManager;
         [HideInInspector] public AICharacterCombatManager aiCharacterCombatManager;
         [HideInInspector] public AICharacterLocomotionManager aiCharacterLocomotionManager;
@@ -15,7 +18,7 @@ namespace SG
         public NavMeshAgent navMeshAgent;
 
         [Header("Current State")]
-        [SerializeField] AIState currentState;
+        [SerializeField] protected AIState currentState;
 
         [Header("States")]
         public IdleState idle;
@@ -32,12 +35,18 @@ namespace SG
             aiCharacterLocomotionManager = GetComponent<AICharacterLocomotionManager>();
 
             navMeshAgent = GetComponentInChildren<NavMeshAgent>();
+        }
 
-            //  USE A COPY OF THE SCRIPTABLE OBJECTS, SO THE ORIGINALS ARE NOT MODIFIED
-            idle = Instantiate(idle);
-            pursueTarget = Instantiate(pursueTarget);
+        public override void OnNetworkSpawn()
+        {
+            base.OnNetworkSpawn();
 
-            currentState = idle;
+            if (IsOwner)
+            {
+                idle = Instantiate(idle);
+                pursueTarget = Instantiate(pursueTarget);
+                currentState = idle;
+            }
         }
 
         protected override void Update()

@@ -898,7 +898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2011354873027329814}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.6928357, z: 0, w: 0.7210955}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
   m_ConstrainProportionsScale: 1
@@ -907,7 +907,7 @@ Transform:
   - {fileID: 588887395084143038}
   - {fileID: 4188906793375888026}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -87.71, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5188149496543721379
 Animator:
   serializedVersion: 5
@@ -1141,13 +1141,13 @@ MonoBehaviour:
   isChargingAttack:
     m_InternalValue: 0
   currentHealth:
-    m_InternalValue: 0
+    m_InternalValue: 1000
   maxHealth:
-    m_InternalValue: 0
+    m_InternalValue: 1000
   currentStamina:
-    m_InternalValue: 0
+    m_InternalValue: 1000
   maxStamina:
-    m_InternalValue: 0
+    m_InternalValue: 1000
   vitality:
     m_InternalValue: 1
   endurance:
@@ -1347,21 +1347,28 @@ MonoBehaviour:
   characterLocomotionManager: {fileID: 0}
   characterGroup: 1
   isPerformingAction: 0
+  characterName: LEVIATAN
   aiCharacterNetworkManager: {fileID: 0}
   aiCharacterCombatManager: {fileID: 0}
   aiCharacterLocomotionManager: {fileID: 0}
-  navMeshAgent: {fileID: 0}
+  navMeshAgent: {fileID: 2981338887002167201}
   currentState: {fileID: 0}
   idle: {fileID: 11400000, guid: 96ea71cbe058756478af2fd40bd3e777, type: 2}
   pursueTarget: {fileID: 11400000, guid: 61355c58c28491047a7fb4613b843881, type: 2}
   combatStance: {fileID: 11400000, guid: cdfbdb53818e1b949852fb13b6f4a591, type: 2}
   attack: {fileID: 11400000, guid: 290091e5cb4122b4c8117d3f60057604, type: 2}
   bossID: 0
-  hasBeenDefeated: 0
-  hasBeenAwakened: 0
+  bossFightIsActive:
+    m_InternalValue: 0
+  hasBeenAwakened:
+    m_InternalValue: 0
+  hasBeenDefeated:
+    m_InternalValue: 0
   fogWalls:
   - {fileID: 9191672399081195685, guid: aa631615d1314144a9ce99097787ee72, type: 3}
-  wakeBossUp: 0
+  sleepAnimation: Sleep_01
+  awakenAnimation: Awaken_01
+  sleepState: {fileID: 11400000, guid: 3b55224c584f5df48aa6d1cb42f575c5, type: 2}
   durkSoundFXManager: {fileID: 0}
   durkCombatManager: {fileID: 0}
 --- !u!1 &2043058873072962909
